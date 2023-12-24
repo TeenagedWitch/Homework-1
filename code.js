@@ -4,17 +4,17 @@ const firstInput1 = prompt("Enter the first number:");
 const firstInput2 = prompt("Enter the base for conversion:");
 
 const convertToBase = (decimalNumber, base) => {
-  if (isNaN(decimalNumber) || isNaN(base)) {
+  if (isNaN(decimalNumber) || isNaN(base) || base < 2 || base > 36) {
     return "Invalid input!";
   }
 
-  const result = decimalNumber.toString(base);
+  const result = Number(decimalNumber).toString(base);
 
   return result;
 };
 
-const decimalNumber = parseFloat(firstInput1);
-const base = parseInt(firstInput2);
+const decimalNumber = firstInput1.trim();
+const base = firstInput2.trim();
 
 const result = convertToBase(decimalNumber, base);
 
