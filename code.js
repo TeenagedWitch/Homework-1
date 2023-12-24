@@ -25,7 +25,7 @@ console.log(result);
 const secondInput1 = prompt("Enter the first number:");
 const secondInput2 = prompt("Enter the second number:");
 
-const sumAndQuotient = (num1, num2) => {
+const calculateSumAndQuotient = (num1, num2) => {
   if (isNaN(num1) || isNaN(num2)) {
     return "Invalid input!";
   }
