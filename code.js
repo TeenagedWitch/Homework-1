@@ -1,10 +1,11 @@
 // Task 1.
 
-const firstInput1 = prompt("Enter the first number:");
-const firstInput2 = prompt("Enter the base for conversion:");
+const isValidInput = (str) => str.trim().length && !isNaN(str);
+
+const isValidBase = (base) => !isNaN(base) && base >= 2 && base <= 36;
 
 const convertToBase = (decimalNumber, base) => {
-  if (isNaN(decimalNumber) || isNaN(base) || base < 2 || base > 36) {
+  if (!isValidInput(decimalNumber) || !isValidBase(base)) {
     return "Invalid input!";
   }
 
@@ -12,6 +13,9 @@ const convertToBase = (decimalNumber, base) => {
 
   return result;
 };
+
+const firstInput1 = prompt("Enter the first number:");
+const firstInput2 = prompt("Enter the base for conversion:");
 
 const decimalNumber = firstInput1.trim();
 const base = firstInput2.trim();
@@ -29,6 +33,7 @@ const calculateSumAndQuotient = (num1, num2) => {
   if (isNaN(num1) || isNaN(num2)) {
     return "Invalid input!";
   }
+
   const sumResult = num1 + num2;
   const quitentResult = num1 / num2;
 
