@@ -2,9 +2,11 @@
 
 const isValidInput = (str) => str.trim().length && !isNaN(str);
 
-const isValidBase = (base) => !isNaN(base) && base >= 2 && base <= 36;
+const isValidBase = (base) => isValidInput(base) && base >= 2 && base <= 36;
 
 const convertToBase = (decimalNumber, base) => {
+  console.log(typeof decimalNumber);
+  console.log(typeof base);
   if (!isValidInput(decimalNumber) || !isValidBase(base)) {
     return "Invalid input!";
   }
@@ -30,17 +32,16 @@ const secondInput1 = prompt("Enter the first number:");
 const secondInput2 = prompt("Enter the second number:");
 
 const calculateSumAndQuotient = (num1, num2) => {
-  if (isNaN(num1) || isNaN(num2)) {
+  if (!isValidInput(num1) || !isValidInput(num2)) {
     return "Invalid input!";
   }
 
-  const sumResult = num1 + num2;
+  const sumResult = Number(num1) + Number(num2);
   const quitentResult = num1 / num2;
 
   return `Answer: ${sumResult}, ${quitentResult}`;
 };
 
-const number1 = parseFloat(secondInput1);
-const number2 = parseFloat(secondInput2);
-
-console.log(sumAndQuotient(number1, number2));
+const number1 = secondInput1.trim();
+const number2 = secondInput2.trim();
+console.log(calculateSumAndQuotient(number1, number2));
