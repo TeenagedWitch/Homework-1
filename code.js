@@ -5,8 +5,6 @@ const isValidInput = (str) => str.trim().length && !isNaN(str);
 const isValidBase = (base) => isValidInput(base) && base >= 2 && base <= 36;
 
 const convertToBase = (decimalNumber, base) => {
-  console.log(typeof decimalNumber);
-  console.log(typeof base);
   if (!isValidInput(decimalNumber) || !isValidBase(base)) {
     return "Invalid input!";
   }
